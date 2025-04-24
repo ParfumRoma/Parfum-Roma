@@ -41,12 +41,13 @@ nav a {
 .producto {
   display: flex;
   flex-direction: column;
+  align-items: center; /* centramos contenido horizontal */
   justify-content: space-between;
-  height: 100%;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 1rem;
   background: #fff;
+  text-align: center; /* centramos el texto */
 }
 .producto img {
   width: 100%;
@@ -58,6 +59,7 @@ nav a {
 }
 .producto p {
   flex-grow: 1;
+  margin: 1rem 0;
 }
 .btn-wpp {
   background-color: #25D366;
@@ -65,8 +67,8 @@ nav a {
   padding: 10px 20px;
   border-radius: 10px;
   text-decoration: none;
-  display: inline-block;
   margin-top: 1rem;
+  display: inline-block;
 }
 footer {
   background-color: #111;
