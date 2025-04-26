@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -41,13 +40,13 @@ nav a {
 .producto {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centramos contenido horizontal */
+  align-items: center;
   justify-content: space-between;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 1rem;
   background: #fff;
-  text-align: center; /* centramos el texto */
+  text-align: center;
 }
 .producto img {
   width: 100%;
