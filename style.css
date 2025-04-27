@@ -1,16 +1,97 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
 
-body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; }
-header { background-color: #111; color: white; text-align: center; padding: 2rem; }
-header img { width: 100px; border-radius: 100px; }
-nav { background: #222; text-align: center; padding: 1rem; }
-nav a { margin: 0 1rem; color: #f0c040; text-decoration: none; font-weight: bold; }
-.section { padding: 2rem; text-align: center; }
-.catalogo { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; }
-.producto { display: flex; flex-direction: column; align-items: center; justify-content: space-between; border: 1px solid #ccc; border-radius: 15px; padding: 1rem; background: #fff; text-align: center; }
-.producto img { width: 100%; height: auto; border-radius: 10px; }
-.producto h3 { margin-top: 1rem; }
-.producto p { flex-grow: 1; margin: 1rem 0; }
-.btn-wpp { background-color: #25D366; color: white; padding: 10px 20px; border-radius: 10px; text-decoration: none; margin-top: 1rem; display: inline-block; }
-footer { background-color: #111; color: white; padding: 2rem; text-align: center; }
-footer a { margin: 0 1rem; color: #f0c040; text-decoration: none; }
-footer img { width: 30px; margin: 0 5px; }
+header {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+header img {
+  width: 100px;
+  border-radius: 100px;
+}
+
+nav {
+  background: #222;
+  text-align: center;
+  padding: 1rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #f0c040;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 1rem;
+  background: #fff;
+  text-align: center;
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.producto h3 {
+  margin-top: 1rem;
+}
+
+.producto p {
+  flex-grow: 1;
+  margin: 1rem 0;
+}
+
+.btn-wpp {
+  background-color: #25D366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+footer {
+  background-color: #111;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer a {
+  margin: 0 1rem;
+  color: #f0c040;
+  text-decoration: none;
+}
+
+footer img {
+  width: 30px;
+  margin: 0 5px;
+}
