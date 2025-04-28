@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -112,6 +113,14 @@ footer a {
 footer img {
   width: 30px;
   margin: 0 5px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Botón flotante de WhatsApp DORADO */
@@ -130,6 +139,8 @@ footer img {
 .whatsapp-float img {
   width: 50px;
   height: 50px;
+  border-radius: 50%; /* Imagen redonda */
+  object-fit: cover; /* Ajusta la imagen sin distorsionarla */
 }
 
 .whatsapp-float:hover {
@@ -137,8 +148,16 @@ footer img {
   background-color: #d9a030;
 }
 
-
+/* Ajustes para los iconos de redes sociales en el footer */
 footer img {
   width: 30px;
   margin: 0 5px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
