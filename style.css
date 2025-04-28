@@ -41,6 +41,7 @@ nav a {
   padding: 2rem;
 }
 
+/* Animación para los productos */
 .producto {
   display: flex;
   flex-direction: column;
@@ -51,6 +52,16 @@ nav a {
   padding: 1rem;
   background: #fff;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 0.8s ease forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .producto img {
@@ -68,14 +79,21 @@ nav a {
   margin: 1rem 0;
 }
 
+/* Botón WhatsApp de cada producto - ahora DORADO */
 .btn-wpp {
-  background-color: #25D366;
-  color: white;
+  background-color: #f0c040;
+  color: #111;
   padding: 10px 20px;
   border-radius: 10px;
   text-decoration: none;
   margin-top: 1rem;
   display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-wpp:hover {
+  background-color: #d9a030;
 }
 
 footer {
@@ -90,6 +108,35 @@ footer a {
   color: #f0c040;
   text-decoration: none;
 }
+
+footer img {
+  width: 30px;
+  margin: 0 5px;
+}
+
+/* Botón flotante de WhatsApp DORADO */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  background-color: #f0c040;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.whatsapp-float img {
+  width: 50px;
+  height: 50px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #d9a030;
+}
+
 
 footer img {
   width: 30px;
