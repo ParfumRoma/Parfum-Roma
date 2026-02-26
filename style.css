@@ -35,44 +35,42 @@ nav a {
   text-align: center;
 }
 
-/* 🔥 ARREGLADO: ya no se estiran las tarjetas */
+/* CATÁLOGO RESPONSIVE BIEN HECHO */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-  justify-content: center;
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Animación para los productos */
+/* Animación productos */
 .producto {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 1rem;
   background: #fff;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
   animation: aparecer 0.8s ease forwards;
-  max-width: 300px; /* 🔥 límite de ancho */
-  width: 100%;
 }
 
 @keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* 🔥 ARREGLADO: imágenes con tamaño controlado */
 .producto img {
   width: 100%;
-  max-height: 300px;
+  height: 250px;
   object-fit: contain;
   border-radius: 10px;
 }
@@ -86,7 +84,7 @@ nav a {
   margin: 1rem 0;
 }
 
-/* Botón WhatsApp de cada producto - DORADO */
+/* Botón WhatsApp */
 .btn-wpp {
   background-color: #f0c040;
   color: #111;
@@ -103,6 +101,7 @@ nav a {
   background-color: #d9a030;
 }
 
+/* Footer */
 footer {
   background-color: #111;
   color: white;
@@ -116,7 +115,6 @@ footer a {
   text-decoration: none;
 }
 
-/* Iconos redes */
 footer img {
   width: 30px;
   margin: 0 5px;
@@ -153,4 +151,23 @@ footer img:hover {
 .whatsapp-float:hover {
   transform: scale(1.1);
   background-color: #d9a030;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .producto img {
+    height: 200px;
+  }
 }
