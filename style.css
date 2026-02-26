@@ -35,9 +35,11 @@ nav a {
   text-align: center;
 }
 
+/* 🔥 ARREGLADO: ya no se estiran las tarjetas */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
 }
@@ -56,6 +58,8 @@ nav a {
   opacity: 0;
   transform: translateY(30px);
   animation: aparecer 0.8s ease forwards;
+  max-width: 300px; /* 🔥 límite de ancho */
+  width: 100%;
 }
 
 @keyframes aparecer {
@@ -65,9 +69,11 @@ nav a {
   }
 }
 
+/* 🔥 ARREGLADO: imágenes con tamaño controlado */
 .producto img {
   width: 100%;
-  height: auto;
+  max-height: 300px;
+  object-fit: contain;
   border-radius: 10px;
 }
 
@@ -80,7 +86,7 @@ nav a {
   margin: 1rem 0;
 }
 
-/* Botón WhatsApp de cada producto - ahora DORADO */
+/* Botón WhatsApp de cada producto - DORADO */
 .btn-wpp {
   background-color: #f0c040;
   color: #111;
@@ -110,6 +116,7 @@ footer a {
   text-decoration: none;
 }
 
+/* Iconos redes */
 footer img {
   width: 30px;
   margin: 0 5px;
@@ -123,7 +130,7 @@ footer img:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Botón flotante de WhatsApp DORADO */
+/* Botón flotante WhatsApp */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -139,25 +146,11 @@ footer img:hover {
 .whatsapp-float img {
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Imagen redonda */
-  object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
   background-color: #d9a030;
-}
-
-/* Ajustes para los iconos de redes sociales en el footer */
-footer img {
-  width: 30px;
-  margin: 0 5px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-footer img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
