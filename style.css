@@ -1,4 +1,6 @@
-/* Estilos generales */
+/* =======================
+   ESTILOS GENERALES
+======================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -30,59 +32,41 @@ nav a {
   font-weight: bold;
 }
 
-.section {
-  padding: 2rem;
-  text-align: center;
-}
-
-/* 👇 MISMO SISTEMA QUE TENÍAS, PERO CONTROLADO */
+/* =======================
+   CATÁLOGO RESPONSIVO
+======================= */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  max-width: 1200px;   /* 🔥 esto evita que se estire infinito */
-  margin: 0 auto;      /* 🔥 lo centra */
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* Animación para los productos */
 .producto {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 1rem;
   background: #fff;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: aparecer 0.8s ease forwards;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .producto img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-  max-height: 280px; /* 🔥 límite suave para que no se hagan gigantes */
+  height: 220px;
   object-fit: contain;
+  border-radius: 10px;
 }
 
 .producto h3 {
-  margin-top: 1rem;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .producto p {
-  flex-grow: 1;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 /* Botón WhatsApp */
@@ -92,8 +76,7 @@ nav a {
   padding: 10px 20px;
   border-radius: 10px;
   text-decoration: none;
-  margin-top: 1rem;
-  display: inline-block;
+  margin-top: auto;
   font-weight: bold;
   transition: background-color 0.3s;
 }
@@ -102,6 +85,9 @@ nav a {
   background-color: #d9a030;
 }
 
+/* =======================
+   FOOTER
+======================= */
 footer {
   background-color: #111;
   color: white;
@@ -120,14 +106,11 @@ footer img {
   margin: 0 5px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-footer img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+/* =======================
+   WHATSAPP FLOTANTE
+======================= */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -136,18 +119,10 @@ footer img:hover {
   background-color: #f0c040;
   border-radius: 50%;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, background-color 0.3s;
 }
 
 .whatsapp-float img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  object-fit: cover;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  background-color: #d9a030;
 }
