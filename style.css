@@ -233,6 +233,8 @@ footer img {
   width: 30px;
   margin: 0 5px;
   border-radius: 50%;
+  height: auto; /* ✅ FIX */
+  display: inline-block;
 }
 
 /* =======================
@@ -245,12 +247,17 @@ footer img {
   z-index: 100;
   background: #25D366;
   border-radius: 50%;
-  padding: 10px;
+  padding: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+
+  display: flex; /* ✅ centra icono */
+  align-items: center;
+  justify-content: center;
 }
 
 .whatsapp-float img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  width: 35px;
+  height: auto; /* ✅ FIX clave */
+  border-radius: 0; /* evita doble círculo */
+  display: block;
 }
