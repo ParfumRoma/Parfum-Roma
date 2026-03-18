@@ -233,12 +233,12 @@ footer img {
   width: 30px;
   margin: 0 5px;
   border-radius: 50%;
-  height: auto; /* ✅ FIX */
+  height: auto;
   display: inline-block;
 }
 
 /* =======================
-   WHATSAPP FLOTANTE
+   WHATSAPP FLOTANTE (PRO)
 ======================= */
 .whatsapp-float {
   position: fixed;
@@ -247,17 +247,19 @@ footer img {
   z-index: 100;
   background: #25D366;
   border-radius: 50%;
-  padding: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 
-  display: flex; /* ✅ centra icono */
+  width: 60px; /* 🔥 tamaño fijo perfecto */
+  height: 60px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
 .whatsapp-float img {
-  width: 35px;
-  height: auto; /* ✅ FIX clave */
-  border-radius: 0; /* evita doble círculo */
+  width: 28px; /* 🔥 tamaño correcto del icono */
+  height: auto;
   display: block;
 }
