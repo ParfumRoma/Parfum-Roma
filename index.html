@@ -47,7 +47,8 @@
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav id="menu">
-    <a href="#productos">Catálogo</a>
+    <a href="#productos">Catálogo Árabe</a>
+    <a href="#disenador" style="color: var(--primary); font-weight: 600;">Diseñador <span style="font-size: 0.6rem; vertical-align: top; background: var(--primary); color: #000; padding: 2px 4px; border-radius: 2px; margin-left: 2px;">NUEVO</span></a>
     <a href="#contacto">Contacto</a>
     <a href="https://www.instagram.com/parfum.roma/" target="_blank">Instagram</a>
   </nav>
@@ -59,8 +60,10 @@
   <div class="hero-content" style="opacity: 1;">
     <h2 style="font-size: 4.5rem; letter-spacing: 4px; font-weight: 300;">Tu fragancia, <br> <span style="color: var(--primary); font-weight: 800;">tu firma invisible</span></h2>
     <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; opacity: 0.8;">Colección Exclusiva de Perfumes Árabes & Lujo</p>
-    <a href="#productos" class="btn-wpp" style="margin-top: 40px; display: inline-block; width: auto; padding: 18px 50px; border-radius: 0;">Explorar Colección</a>
-  </div>
+    <div style="margin-top: 40px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+      <a href="#productos" class="btn-wpp" style="display: inline-block; width: auto; padding: 18px 40px; border-radius: 0;">Catálogo Árabe</a>
+      <a href="#disenador" class="btn-wpp" style="display: inline-block; width: auto; padding: 18px 40px; border-radius: 0; background: var(--primary); color: #000; font-weight: 700;">Línea Diseñador (NUEVO)</a>
+    </div>
 </section>
 
 </section>
@@ -85,7 +88,7 @@
     <h3>Al Haramain Dubai Night</h3>
     <p class="precio">$99.999</p>
     <p class="desc">Oriental especiado con matices de ámbar y maderas dulces.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Dubai Night">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Al Haramain Dubai Night', 99999, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -95,7 +98,7 @@
     <h3>Amber Oud Aqua Dubai</h3>
     <p class="precio">$99.999</p>
     <p class="desc">Frescura acuática y lujo oriental.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Amber Oud Aqua Dubai">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Amber Oud Aqua Dubai', 99999, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -105,7 +108,7 @@
     <h3>Club De Nuit Intense</h3>
     <p class="precio">$67.000</p>
     <p class="desc">Cítricos, almizcle y maderas ahumadas intensas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club De Nuit Intense">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club De Nuit Intense', 67000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -115,7 +118,7 @@
     <h3>Mayar</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Notas frutales dulces y flores blancas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Mayar">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Mayar', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -125,7 +128,7 @@
     <h3>Asad Bourbon</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Oud dulce con acordes de whisky bourbon.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Asad Bourbon">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Asad Bourbon', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -135,7 +138,7 @@
     <h3>Yara Elixir</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Frutal, floral, juvenil y moderno.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Yara Elixir">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Yara Elixir', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -145,7 +148,7 @@
     <h3>Yara Moi</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Notas cremosas de jazmín, durazno y caramelo.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Yara Moi">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Yara Moi', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -155,7 +158,7 @@
     <h3>Yara Candy</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Dulce, frutal y gourmand, perfecto para jóvenes.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Yara Candy">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Yara Candy', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -165,7 +168,7 @@
     <h3>Yara Tous</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Acordes de vainilla, jazmín y frutas exóticas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Yara Tous">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Yara Tous', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -175,7 +178,7 @@
     <h3>9am Dive</h3>
     <p class="precio">$66.000</p>
     <p class="desc">Cítricos frescos, lavanda y ámbar marino.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=9am Dive">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9am Dive', 66000, this)">Agregar al carrito</button>
   </div>
 </div>
 <div class="producto">
@@ -184,7 +187,7 @@
     <h3>Badee Al Oud Honor & Glory</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Oud intenso, especias exóticas y madera preciosa.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Honor Glory">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Badee Al Oud Honor & Glory', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -194,7 +197,7 @@
     <h3>Badee Al Oud For Glory</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Oud oscuro, especias vibrantes y fondo dulce misterioso.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=For Glory">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Badee Al Oud For Glory', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -204,7 +207,7 @@
     <h3>Badee Al Oud Sublime</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Azafrán, rosa y ámbar cálido.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Sublime">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Badee Al Oud Sublime', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -214,7 +217,7 @@
     <h3>Badee Al Oud Amethyste</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Oud suave con acordes florales y ambarados.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Amethyste">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Badee Al Oud Amethyste', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -224,7 +227,7 @@
     <h3>Khamrah Qawah</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Café especiado, canela, cardamomo y oud dulce.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Khamrah Qawah">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Khamrah Qawah', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -234,7 +237,7 @@
     <h3>Fakhara Black</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Oud amaderado con especias cálidas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Fakhara Black">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Fakhara Black', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -244,7 +247,7 @@
     <h3>Fakhara Gold</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Madera dorada, oud y especias finas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Fakhara Gold">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Fakhara Gold', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -254,7 +257,7 @@
     <h3>Fakhara Rose</h3>
     <p class="precio">$62.000</p>
     <p class="desc">Rosa oriental, oud y almizcle dulce.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Fakhara Rose">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Fakhara Rose', 62000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -264,7 +267,7 @@
     <h3>Mandarin Sky</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Mandarina dulce, vainilla y especias suaves.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Mandarin Sky">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Mandarin Sky', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -274,7 +277,7 @@
     <h3>Philos Pura</h3>
     <p class="precio">$55.000</p>
     <p class="desc">Almizcle puro con frescura limpia y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Philos Pura">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Philos Pura', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
 <div class="producto">
@@ -283,7 +286,7 @@
     <h3>Jean Lowe Noir</h3>
     <p class="precio">$61.000</p>
     <p class="desc">Amaderado elegante con un toque oscuro.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Jean Lowe Noir">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Jean Lowe Noir', 61000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -293,7 +296,7 @@
     <h3>Dark Aoud</h3>
     <p class="precio">$61.000</p>
     <p class="desc">Oud oscuro, humo de incienso y ámbar místico.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Dark Aoud">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Dark Aoud', 61000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -303,7 +306,7 @@
     <h3>Spectre Ghost</h3>
     <p class="precio">$83.000</p>
     <p class="desc">Fragancia misteriosa, vibrante y con gran carácter.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Spectre Ghost">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Spectre Ghost', 83000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -313,7 +316,7 @@
     <h3>Hawas Ice For Him</h3>
     <p class="precio">$77.000</p>
     <p class="desc">Aroma helado, cítrico e intenso, muy refrescante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hawas Ice">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hawas Ice For Him', 77000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -323,7 +326,7 @@
     <h3>Philos Rosso</h3>
     <p class="precio">$55.000</p>
     <p class="desc">Dulce, afrutada y con un toque seductor.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Philos Rosso">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Philos Rosso', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -333,7 +336,7 @@
     <h3>9PM Rebel – Afnan</h3>
     <p class="precio">$68.000</p>
     <p class="desc">Dulce, especiada y con actitud nocturna.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=9PM Rebel">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9PM Rebel – Afnan', 68000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -343,7 +346,7 @@
     <h3>Liquid Brun – French Avenue</h3>
     <p class="precio">$75.000</p>
     <p class="desc">Fragancia cálida, amaderada y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Liquid Brun">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Liquid Brun – French Avenue', 75000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -353,7 +356,7 @@
     <h3>Hayaati Gold Elixir</h3>
     <p class="precio">$58.000</p>
     <p class="desc">Oriental, dulce y moderna.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hayaati Gold Elixir">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hayaati Gold Elixir', 58000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -363,7 +366,7 @@
     <h3>ALIVE NOW</h3>
     <p class="precio">$55.000</p>
     <p class="desc">Fragancia frutal, floral y alegre.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Alive Now">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('ALIVE NOW', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -373,7 +376,7 @@
     <h3>Her Confession – Lattafa</h3>
     <p class="precio">$64.000</p>
     <p class="desc">Floral, oriental y femenina.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Her Confession">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Her Confession – Lattafa', 64000, this)">Agregar al carrito</button>
   </div>
 </div>
 <div class="producto">
@@ -382,7 +385,7 @@
     <h3>Art of Universe</h3>
     <p class="precio">$78.000</p>
     <p class="desc">Fragancia elegante con notas frescas, especiadas y fondo cálido.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Art of Universe">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Art of Universe', 78000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -392,7 +395,7 @@
     <h3>Club de Nuit Untold</h3>
     <p class="precio">$84.900</p>
     <p class="desc">Notas dulces, ambaradas y especiadas, muy lujosa.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club de Nuit Untold">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club de Nuit Untold', 84900, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -402,7 +405,7 @@
     <h3>Club de Nuit Women</h3>
     <p class="precio">$62.000</p>
     <p class="desc">Floral, cítrica y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club de Nuit Women">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club de Nuit Women', 62000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -412,7 +415,7 @@
     <h3>Club de Nuit Iconic</h3>
     <p class="precio">$79.999</p>
     <p class="desc">Fresca, moderna y con carácter.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club de Nuit Iconic">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club de Nuit Iconic', 79999, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -422,7 +425,7 @@
     <h3>Club de Nuit Sillage</h3>
     <p class="precio">$77.000</p>
     <p class="desc">Cítrica, floral y almizclada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club de Nuit Sillage">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club de Nuit Sillage', 77000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -432,7 +435,7 @@
     <h3>Club de Nuit Maleka</h3>
     <p class="precio">$81.000</p>
     <p class="desc">Dulce, exótica y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Club de Nuit Maleka">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Club de Nuit Maleka', 81000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -442,7 +445,7 @@
     <h3>Turathi Blue</h3>
     <p class="precio">$70.000</p>
     <p class="desc">Cítrica, aromática y sofisticada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Turathi Blue">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Turathi Blue', 70000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -452,7 +455,7 @@
     <h3>Mayar Cherry</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Dulce, jugosa y seductora con notas de cereza.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Mayar Cherry">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Mayar Cherry', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -462,7 +465,7 @@
     <h3>Mayar Natural Intense</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Frutal, floral y cremosa.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Mayar Natural Intense">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Mayar Natural Intense', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -472,7 +475,7 @@
     <h3>Qaed Al Fursan</h3>
     <p class="precio">$52.000</p>
     <p class="desc">Intensa, ambarada y poderosa.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Qaed Al Fursan">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Qaed Al Fursan', 52000, this)">Agregar al carrito</button>
   </div>
 </div>
 <div class="producto">
@@ -481,7 +484,7 @@
     <h3>Qaed Al Fursan White</h3>
     <p class="precio">$52.000</p>
     <p class="desc">Fresca, cítrica y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Qaed Al Fursan White">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Qaed Al Fursan White', 52000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -491,7 +494,7 @@
     <h3>Hayyati al Maleky</h3>
     <p class="precio">$58.000</p>
     <p class="desc">Fragancia fresca, luminosa y moderna.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hayyati al Maleky">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hayyati al Maleky', 58000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -501,7 +504,7 @@
     <h3>Hayyati Florence</h3>
     <p class="precio">$58.000</p>
     <p class="desc">Floral, afrutada y delicada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hayyati Florence">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hayyati Florence', 58000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -511,7 +514,7 @@
     <h3>Angham de Lattafa</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Dulce, cálida y sofisticada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Angham">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Angham de Lattafa', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -521,7 +524,7 @@
     <h3>Fakhara Platin</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Cítrica, moderna y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Fakhara Platin">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Fakhara Platin', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -531,7 +534,7 @@
     <h3>Hawas Fire</h3>
     <p class="precio">$82.000</p>
     <p class="desc">Intensa, especiada y seductora.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hawas Fire">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hawas Fire', 82000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -541,7 +544,7 @@
     <h3>Al Quiam Gold</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Fragancia cálida, elegante y poderosa.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Al Quiam Gold">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Al Quiam Gold', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -551,7 +554,7 @@
     <h3>Mandarin Sky Elixir</h3>
     <p class="precio">$77.000</p>
     <p class="desc">Cítrica, dulce y moderna.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Mandarin Sky Elixir">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Mandarin Sky Elixir', 77000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -561,7 +564,7 @@
     <h3>STALLION 53</h3>
     <p class="precio">$63.000</p>
     <p class="desc">Masculina, intensa y elegante.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Stallion 53">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('STALLION 53', 63000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -571,7 +574,7 @@
     <h3>Odyssey Homme</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Cálida, dulce y sofisticada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Odyssey Homme">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Odyssey Homme', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -581,7 +584,7 @@
     <h3>Lujain</h3>
     <p class="precio">$70.000</p>
     <p class="desc">Dulce, elegante y duradera.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Lujain">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Lujain', 70000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -591,7 +594,7 @@
     <h3>Qimmah for Women</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Femenina, dulce y sofisticada.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Qimmah">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Qimmah for Women', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -601,7 +604,7 @@
     <h3>ANSAAM GOLD de lattafa</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Notas de ámbar dorado, flores exóticas y maderas suaves.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=ANSAAM GOLD">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('ANSAAM GOLD de lattafa', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -611,7 +614,7 @@
     <h3>Hayaati de lattafa</h3>
     <p class="precio">$58.000</p>
     <p class="desc">Manzana especiada, maderas ahumadas y almizcle intenso.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hayaati">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hayaati de lattafa', 58000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -621,7 +624,7 @@
     <h3>CONFIDENTIAL</h3>
     <p class="precio">$55.000</p>
     <p class="desc">Vainilla oriental, almizcle blanco y notas frutales.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Confidential">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('CONFIDENTIAL', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -631,7 +634,7 @@
     <h3>The Kingdom Femenino</h3>
     <p class="precio">$64.000</p>
     <p class="desc">Ámbar blanco, flores suaves y vainilla envolvente.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=The Kingdom">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('The Kingdom Femenino', 64000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -641,7 +644,7 @@
     <h3>ECLAIRE DE LATTAFA</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Flores blancas, vainilla suave y almizcles.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Eclaire">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('ECLAIRE DE LATTAFA', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -651,7 +654,7 @@
     <h3>NOBLE BLUSH</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Rosas, frutos rojos y maderas cremosas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Noble Blush">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('NOBLE BLUSH', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -661,7 +664,7 @@
     <h3>FATIMA</h3>
     <p class="precio">$55.000</p>
     <p class="desc">Jazmín, ámbar dulce y maderas suaves.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Fatima">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('FATIMA', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -671,7 +674,7 @@
     <h3>Amber Oud</h3>
     <p class="precio">$99.999</p>
     <p class="desc">Ámbar dulce y maderas preciosas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Amber Oud">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Amber Oud', 99999, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -681,7 +684,7 @@
     <h3>Asad</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Vainilla, pimienta y maderas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Asad">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Asad', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -691,7 +694,7 @@
     <h3>Yara Pink</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Frutal, floral y moderno.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Yara Pink">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Yara Pink', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -701,7 +704,7 @@
     <h3>9pm</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Manzana, canela, vainilla y tonka.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=9pm">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9pm', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -711,7 +714,7 @@
     <h3>Khamrah</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Canela, dátiles y maderas orientales.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Khamrah">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Khamrah', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -721,7 +724,7 @@
     <h3>Bharara King</h3>
     <p class="precio">$105.000</p>
     <p class="desc">Oud royal, vainilla intensa y notas dulces.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Bharara King">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Bharara King', 105000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -731,7 +734,7 @@
     <h3>Hawas For Him</h3>
     <p class="precio">$65.000</p>
     <p class="desc">Fresca, especiada y seductora.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Hawas">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Hawas For Him', 65000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -741,7 +744,7 @@
     <h3>Vintage Radio</h3>
     <p class="precio">$60.000</p>
     <p class="desc">Notas cálidas, amaderadas y nostálgicas.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Vintage Radio">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Vintage Radio', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -751,7 +754,7 @@
     <h3>Crema Karseell</h3>
     <p class="precio">$29.999</p>
     <p class="desc">Tratamiento capilar intensivo, hidratación profunda.</p>
-    <a class="btn-wpp" href="https://wa.me/5491150350552?text=Karseell">Consultar por WhatsApp</a>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Crema Karseell', 29999, this)">Agregar al carrito</button>
   </div>
 </div>
     <!-- 🔴 IMPORTANTE -->
@@ -760,7 +763,102 @@
 
   </div>
 
+  <h2 id="disenador" style="margin-top: 60px;">Perfumes de Diseñador</h2>
+  <div class="catalogo">
+    <div class="producto">
+      <img src="img/Importados diseñador/Le Beau le Parfum 125Ml.jpeg" alt="Le Beau le Parfum">
+      <div class="info">
+        <h3>Le Beau le Parfum - 125 ml</h3>
+        <p class="precio">$209.999</p>
+        <p class="desc">Intenso, adictivo y seductor.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Le Beau le Parfum 125ml', 209999, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/Le Male elixir 125Ml .jpeg" alt="Le Male Elixir">
+      <div class="info">
+        <h3>Le Male Elixir - 125 ml</h3>
+        <p class="precio">$194.999</p>
+        <p class="desc">Aroma cálido, dulce y vibrante.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Le Male Elixir 125ml', 194999, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/Scandal le parfum 100Ml .jpeg" alt="Scandal le parfum">
+      <div class="info">
+        <h3>Scandal le Parfum - 100 ml</h3>
+        <p class="precio">$176.500</p>
+        <p class="desc">Audaz, dulce y envolvente.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Scandal le Parfum 100ml', 176500, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/Stronger with you intensely 100Ml.jpeg" alt="Stronger with You Intensely">
+      <div class="info">
+        <h3>Stronger with You Intensely - 100 ml</h3>
+        <p class="precio">$209.999</p>
+        <p class="desc">Dulce, amaderado y cautivador.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Stronger with You Intensely 100ml', 209999, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/The Most Wanted intense EDP 100Ml .jpeg" alt="The Most Wanted Intense EDP">
+      <div class="info">
+        <h3>The Most Wanted Intense EDP - 100 ml</h3>
+        <p class="precio">$185.500</p>
+        <p class="desc">Elegante, amaderado y luminoso.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('The Most Wanted Intense EDP 100ml', 185500, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/Valentino in Roma intense .jpeg" alt="Valentino Uomo Born In Roma Intense">
+      <div class="info">
+        <h3>Valentino Uomo Born In Roma Intense</h3>
+        <p class="precio">$289.500</p>
+        <p class="desc">Notas intensas de vainilla y lavanda.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Valentino Uomo Born In Roma Intense', 289500, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/XERJOFF Naxos  100Ml .jpeg" alt="Xerjoff Naxos">
+      <div class="info">
+        <h3>Xerjoff Naxos - 100 ml</h3>
+        <p class="precio">$385.500</p>
+        <p class="desc">Cítricos vibrantes, miel y tabaco rico.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Xerjoff Naxos 100ml', 385500, this)">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="img/Importados diseñador/XERJOFF erba pura 100Ml .jpeg" alt="Xerjoff Erba Pura">
+      <div class="info">
+        <h3>Xerjoff Erba Pura - 100 ml</h3>
+        <p class="precio">$359.999</p>
+        <p class="desc">Frutal, fresco y extremadamente duradero.</p>
+        <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Xerjoff Erba Pura 100ml', 359999, this)">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+
 </section>
+
+<!-- CARRITO DE COMPRAS SIDEBAR -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Tu Selección</h3>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <!-- Items dinámicos -->
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cart-total-price">$0</span>
+    </div>
+    <button class="btn-checkout" onclick="enviarPedido()">Confirmar por WhatsApp</button>
+  </div>
+</div>
+<div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
 
 <!-- FOOTER -->
 <footer id="contacto">
@@ -777,10 +875,16 @@
   <p style="font-size: 0.8rem; margin-top: 40px; color: #444;">© 2026 Parfum Roma - Todos los derechos reservados.</p>
 </footer>
 
-<!-- BOTÓN FLOTANTE -->
-<a class="whatsapp-float" href="https://wa.me/5491150350552">
-  <img src="img/WhatsApp12345.svg">
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/5491150350552" target="_blank">
+  <img src="img/WhatsApp12345.svg" alt="WhatsApp">
 </a>
+
+<!-- BOTÓN FLOTANTE CARRITO -->
+<div class="cart-float" onclick="toggleCart()">
+  🛒
+  <span id="cart-float-count">0</span>
+</div>
 
 <script>
 function toggleMenu() {
@@ -837,6 +941,7 @@ document.querySelectorAll('.producto, .reveal').forEach(el => {
   observer.observe(el);
 });
 </script>
+<script src="script.js"></script>
 
 </body>
 </html>
