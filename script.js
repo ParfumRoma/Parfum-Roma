@@ -126,6 +126,10 @@ async function loadProducts(defaultProducts, defaultDesignerProducts) {
       await window.CloudDB.seedProductsIfEmpty(defaultProducts);
       const remote = (await window.CloudDB.fetchProducts()) || [];
       const normalizedRemote = remote.map((item, index) => normalizeProduct(item, index));
+      if (normalizedRemote.length === 0) {
+        // Cloud enabled but empty dataset: show built-in catalog so the site is never blank.
+        return [...defaultProducts];
+      }
       return mergeMissingDesigner(normalizedRemote, defaultDesignerProducts);
     } catch (error) {
       console.error('Fallo carga cloud, uso local.', error);

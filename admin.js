@@ -110,6 +110,48 @@ async function writeProducts(products) {
   saveProductsLocal(normalized);
 }
 
+function parsePrice(text) {
+  const digits = String(text || '').replace(/[^\d]/g, '');
+  return Number(digits || 0);
+}
+
+function extractSeedProductsFromDocument(doc, selector, categoria) {
+  const container = doc.querySelector(selector);
+  if (!container) return [];
+
+  return Array.from(container.querySelectorAll('.producto')).map((card, index) => ({
+    id: `${categoria}-${index + 1}`,
+    nombre: card.querySelector('h3')?.textContent?.trim() || '',
+    precio: parsePrice(card.querySelector('.precio')?.textContent?.trim() || ''),
+    descripcion: card.querySelector('.desc')?.textContent?.trim() || '',
+    imagen: String(card.querySelector('img')?.getAttribute('src') || '').trim(),
+    categoria: normalizeCategory(categoria)
+  }));
+}
+
+async function seedFromIndexHtmlIfNeeded(currentProducts) {
+  if (!window.CloudDB?.enabled) return currentProducts;
+  if ((currentProducts || []).length > 0) return currentProducts;
+
+  try {
+    const response = await fetch('index.html', { cache: 'no-store' });
+    if (!response.ok) return currentProducts;
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+    const arabSeed = extractSeedProductsFromDocument(doc, '#catalogo-arabe', 'arabe');
+    const designerSeed = extractSeedProductsFromDocument(doc, '#catalogo-disenador', 'disenador');
+    const seed = [...arabSeed, ...designerSeed].map((item, index) => normalizeProduct(item, index));
+
+    if (seed.length === 0) return currentProducts;
+    await writeProducts(seed);
+    return seed;
+  } catch (error) {
+    console.error('No se pudo importar catalogo base desde index.html', error);
+    return currentProducts;
+  }
+}
+
 async function isAuthenticated() {
   if (window.CloudDB?.enabled) {
     try {
@@ -246,7 +288,8 @@ function renderTable() {
 }
 
 async function refreshProducts() {
-  productsCache = await readProducts();
+  const loaded = await readProducts();
+  productsCache = await seedFromIndexHtmlIfNeeded(loaded);
   renderTable();
 }
 
