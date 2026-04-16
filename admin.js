@@ -1,8 +1,8 @@
 ﻿const STORAGE_KEY_PRODUCTS = 'parfumroma.products.v1';
 const SESSION_KEY = 'parfumroma.admin.session';
 
-const ADMIN_USER = 'Lucas';
-const ADMIN_PASS = 'click24web';
+const LEGACY_ADMIN_USER = 'Lucas';
+const LEGACY_ADMIN_PASS = 'click24web';
 
 const loginSection = document.getElementById('loginSection');
 const panelSection = document.getElementById('panelSection');
@@ -29,11 +29,13 @@ const productsTableBodyDesigner = document.getElementById('productsTableBodyDesi
 
 const cancelEditBtn = document.getElementById('cancelEditBtn');
 const logoutBtn = document.getElementById('logoutBtn');
+
 const MAX_IMAGE_SIDE = 1100;
 const JPG_QUALITY = 0.82;
 
 let uploadedImageData = '';
 let existingImageValue = '';
+let productsCache = [];
 
 function escapeHtml(text) {
   return String(text ?? '')
@@ -53,23 +55,75 @@ function formatPrice(price) {
 }
 
 function normalizeCategory(value) {
-  const cleaned = String(value || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim();
-  const compact = cleaned.replace(/[^a-z]/g, '');
+  if (window.CloudDB?.normalizeCategory) return window.CloudDB.normalizeCategory(value);
+  return String(value || '').toLowerCase() === 'disenador' ? 'disenador' : 'arabe';
+}
 
-  if (
-    cleaned === 'disenador' ||
-    cleaned === 'designer' ||
-    compact === 'disenador' ||
-    compact === 'diseador'
-  ) {
-    return 'disenador';
+function normalizeProduct(product, index) {
+  if (window.CloudDB?.normalizeProduct) return window.CloudDB.normalizeProduct(product, index);
+  return {
+    id: String(product.id || `p-${Date.now()}-${index || 0}`),
+    nombre: String(product.nombre || '').trim(),
+    categoria: normalizeCategory(product.categoria),
+    precio: Number(product.precio || 0),
+    imagen: String(product.imagen || '').trim(),
+    descripcion: String(product.descripcion || '').trim()
+  };
+}
+
+function getProductsLocal() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_PRODUCTS);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map((p, i) => normalizeProduct(p, i));
+  } catch {
+    return [];
+  }
+}
+
+function saveProductsLocal(products) {
+  localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+}
+
+async function readProducts() {
+  if (window.CloudDB?.enabled) {
+    try {
+      const remote = await window.CloudDB.fetchProducts();
+      return Array.isArray(remote) ? remote.map((p, i) => normalizeProduct(p, i)) : [];
+    } catch (error) {
+      console.error('Fallo lectura cloud, uso local', error);
+    }
+  }
+  return getProductsLocal();
+}
+
+async function writeProducts(products) {
+  const normalized = (products || []).map((p, i) => normalizeProduct(p, i));
+
+  if (window.CloudDB?.enabled) {
+    await window.CloudDB.saveProducts(normalized);
+    return;
   }
 
-  return 'arabe';
+  saveProductsLocal(normalized);
+}
+
+async function isAuthenticated() {
+  if (window.CloudDB?.enabled) {
+    try {
+      return await window.CloudDB.hasSession();
+    } catch {
+      return false;
+    }
+  }
+  return sessionStorage.getItem(SESSION_KEY) === 'ok';
+}
+
+function setLegacyAuthenticated(value) {
+  if (value) sessionStorage.setItem(SESSION_KEY, 'ok');
+  else sessionStorage.removeItem(SESSION_KEY);
 }
 
 function setImageStatus(message) {
@@ -82,7 +136,6 @@ function showPreview(src) {
     imagePreview.removeAttribute('src');
     return;
   }
-
   imagePreview.src = src;
   imagePreview.classList.remove('hidden');
 }
@@ -100,17 +153,14 @@ function resizeImage(dataUrl) {
   return new Promise((resolve) => {
     const img = new Image();
     img.onload = () => {
-      const maxSide = MAX_IMAGE_SIDE;
-      const ratio = Math.min(maxSide / img.width, maxSide / img.height, 1);
+      const ratio = Math.min(MAX_IMAGE_SIDE / img.width, MAX_IMAGE_SIDE / img.height, 1);
       const width = Math.round(img.width * ratio);
       const height = Math.round(img.height * ratio);
 
       const canvas = document.createElement('canvas');
       canvas.width = width;
       canvas.height = height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, width, height);
-
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
       resolve(canvas.toDataURL('image/jpeg', JPG_QUALITY));
     };
     img.onerror = () => resolve(dataUrl);
@@ -126,56 +176,12 @@ async function processSelectedFile(file) {
 
   try {
     const rawDataUrl = await readFileAsDataUrl(file);
-    const optimizedDataUrl = await resizeImage(rawDataUrl);
-    uploadedImageData = optimizedDataUrl;
+    uploadedImageData = await resizeImage(rawDataUrl);
     showPreview(uploadedImageData);
     setImageStatus(`Imagen lista: ${file.name}`);
-  } catch (error) {
+  } catch {
     alert('No se pudo leer la imagen seleccionada.');
   }
-}
-
-function getProducts() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_PRODUCTS);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.map((product) => ({
-      ...product,
-      categoria: normalizeCategory(product.categoria)
-    }));
-  } catch (error) {
-    console.error('Error al leer productos', error);
-    return [];
-  }
-}
-
-function saveProducts(products) {
-  localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
-}
-
-function isAuthenticated() {
-  return sessionStorage.getItem(SESSION_KEY) === 'ok';
-}
-
-function setAuthenticated(value) {
-  if (value) {
-    sessionStorage.setItem(SESSION_KEY, 'ok');
-  } else {
-    sessionStorage.removeItem(SESSION_KEY);
-  }
-}
-
-function showPanel() {
-  loginSection.classList.add('hidden');
-  panelSection.classList.remove('hidden');
-  renderTable();
-}
-
-function showLogin() {
-  panelSection.classList.add('hidden');
-  loginSection.classList.remove('hidden');
 }
 
 function clearForm() {
@@ -192,30 +198,8 @@ function clearForm() {
   setImageStatus('No hay imagen seleccionada.');
 }
 
-function renderTable() {
-  const products = getProducts();
-  const query = adminSearchInput.value.trim().toLowerCase();
-  const filtered = products.filter((product) => {
-    if (!query) return true;
-    const text = `${product.nombre || ''} ${product.descripcion || ''} ${product.categoria || ''}`.toLowerCase();
-    return text.includes(query);
-  });
-
-  if (products.length === 0) {
-    productsTableBodyArab.innerHTML = `
-      <tr>
-        <td colspan="6">Todavia no hay productos en localStorage. Abri primero index.html para cargar el catalogo inicial.</td>
-      </tr>
-    `;
-    productsTableBodyDesigner.innerHTML = `
-      <tr>
-        <td colspan="6">Todavia no hay productos en localStorage. Abri primero index.html para cargar el catalogo inicial.</td>
-      </tr>
-    `;
-    return;
-  }
-
-  const rowTemplate = (product) => `
+function rowTemplate(product) {
+  return `
     <tr>
       <td data-label="Img"><img src="${escapeHtml(product.imagen || '')}" alt="${escapeHtml(product.nombre || '')}" /></td>
       <td data-label="Nombre">${escapeHtml(product.nombre || '')}</td>
@@ -228,41 +212,62 @@ function renderTable() {
       </td>
     </tr>
   `;
+}
 
-  const arabProducts = filtered.filter((product) => (product.categoria || 'arabe') === 'arabe');
-  const designerProducts = filtered.filter((product) => product.categoria === 'disenador');
+function renderTable() {
+  const query = adminSearchInput.value.trim().toLowerCase();
+  const filtered = productsCache.filter((product) => {
+    if (!query) return true;
+    const text = `${product.nombre || ''} ${product.descripcion || ''} ${product.categoria || ''}`.toLowerCase();
+    return text.includes(query);
+  });
 
-  productsTableBodyArab.innerHTML = arabProducts.length > 0
-    ? arabProducts
-      .map(rowTemplate)
-      .join('')
-    : `
+  if (productsCache.length === 0) {
+    const emptyRow = `
       <tr>
-        <td colspan="6">No hay resultados en la seccion Arabes.</td>
+        <td colspan="6">No hay productos cargados todavia.</td>
       </tr>
     `;
+    productsTableBodyArab.innerHTML = emptyRow;
+    productsTableBodyDesigner.innerHTML = emptyRow;
+    return;
+  }
 
-  productsTableBodyDesigner.innerHTML = designerProducts.length > 0
-    ? designerProducts
-    .map((product) => `
-      ${rowTemplate(product)}
-    `)
-    .join('')
-    : `
-      <tr>
-        <td colspan="6">No hay resultados en la seccion Disenador.</td>
-      </tr>
-    `;
+  const arabProducts = filtered.filter((p) => normalizeCategory(p.categoria) === 'arabe');
+  const designerProducts = filtered.filter((p) => normalizeCategory(p.categoria) === 'disenador');
+
+  productsTableBodyArab.innerHTML = arabProducts.length
+    ? arabProducts.map(rowTemplate).join('')
+    : '<tr><td colspan="6">No hay resultados en la seccion Arabes.</td></tr>';
+
+  productsTableBodyDesigner.innerHTML = designerProducts.length
+    ? designerProducts.map(rowTemplate).join('')
+    : '<tr><td colspan="6">No hay resultados en la seccion Disenador.</td></tr>';
+}
+
+async function refreshProducts() {
+  productsCache = await readProducts();
+  renderTable();
+}
+
+function showPanel() {
+  loginSection.classList.add('hidden');
+  panelSection.classList.remove('hidden');
+  refreshProducts();
+}
+
+function showLogin() {
+  panelSection.classList.add('hidden');
+  loginSection.classList.remove('hidden');
 }
 
 function editProduct(productId) {
-  const products = getProducts();
-  const selected = products.find((product) => product.id === productId);
+  const selected = productsCache.find((product) => product.id === productId);
   if (!selected) return;
 
   productIdInput.value = selected.id || '';
   productNameInput.value = selected.nombre || '';
-  productCategoryInput.value = selected.categoria || 'arabe';
+  productCategoryInput.value = normalizeCategory(selected.categoria || 'arabe');
   productPriceInput.value = Number(selected.precio || 0);
   productImageInput.value = (selected.imagen || '').startsWith('data:image/') ? '' : (selected.imagen || '');
   productImageFileInput.value = '';
@@ -275,21 +280,38 @@ function editProduct(productId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function deleteProduct(productId) {
+async function deleteProduct(productId) {
   const confirmed = window.confirm('Seguro que queres eliminar este producto?');
   if (!confirmed) return;
 
-  const products = getProducts().filter((product) => product.id !== productId);
-  saveProducts(products);
-  renderTable();
+  const next = productsCache.filter((product) => product.id !== productId);
+  try {
+    await writeProducts(next);
+    productsCache = next;
+    renderTable();
+  } catch (error) {
+    console.error(error);
+    alert('No se pudo eliminar el producto.');
+  }
 }
 
-function handleLogin() {
+async function handleLogin() {
   const user = loginUser.value.trim();
   const pass = loginPass.value;
 
-  if (user === ADMIN_USER && pass === ADMIN_PASS) {
-    setAuthenticated(true);
+  if (window.CloudDB?.enabled) {
+    try {
+      await window.CloudDB.signIn(user, pass);
+      showPanel();
+      return;
+    } catch {
+      alert('No se pudo iniciar sesion en la nube. Revisa email y contrasena.');
+      return;
+    }
+  }
+
+  if (user === LEGACY_ADMIN_USER && pass === LEGACY_ADMIN_PASS) {
+    setLegacyAuthenticated(true);
     showPanel();
     return;
   }
@@ -305,26 +327,18 @@ loginPass.addEventListener('keydown', (event) => {
   }
 });
 
-pickImageBtn.addEventListener('click', () => {
-  productImageFileInput.click();
-});
-
+pickImageBtn.addEventListener('click', () => productImageFileInput.click());
 productImageFileInput.addEventListener('change', async (event) => {
   const file = event.target.files?.[0];
-  if (!file) return;
-  await processSelectedFile(file);
+  if (file) await processSelectedFile(file);
 });
 
 removeImageBtn.addEventListener('click', () => {
   uploadedImageData = '';
   productImageFileInput.value = '';
-  if (existingImageValue && !productImageInput.value.trim()) {
-    showPreview(existingImageValue);
-    setImageStatus('Volviste a la imagen actual del producto.');
-    return;
-  }
-  showPreview(productImageInput.value.trim() || '');
-  setImageStatus('Imagen subida removida.');
+  const preview = productImageInput.value.trim() || existingImageValue;
+  showPreview(preview);
+  setImageStatus(preview ? 'Preview por ruta manual.' : 'Imagen subida removida.');
 });
 
 ['dragenter', 'dragover'].forEach((eventName) => {
@@ -343,14 +357,9 @@ removeImageBtn.addEventListener('click', () => {
 
 imageDropZone.addEventListener('drop', async (event) => {
   const file = event.dataTransfer?.files?.[0];
-  if (!file) return;
-  await processSelectedFile(file);
+  if (file) await processSelectedFile(file);
 });
-
-imageDropZone.addEventListener('click', () => {
-  productImageFileInput.click();
-});
-
+imageDropZone.addEventListener('click', () => productImageFileInput.click());
 imageDropZone.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault();
@@ -360,22 +369,19 @@ imageDropZone.addEventListener('keydown', (event) => {
 
 productImageInput.addEventListener('input', () => {
   if (uploadedImageData) return;
-  const manualValue = productImageInput.value.trim();
-  const previewValue = manualValue || existingImageValue;
+  const previewValue = productImageInput.value.trim() || existingImageValue;
   showPreview(previewValue);
   setImageStatus(previewValue ? 'Preview por ruta manual.' : 'No hay imagen seleccionada.');
 });
 
-adminSearchInput.addEventListener('input', () => {
-  renderTable();
-});
+adminSearchInput.addEventListener('input', renderTable);
 
 productForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const id = productIdInput.value.trim();
   const nombre = productNameInput.value.trim();
-  const categoria = productCategoryInput.value;
+  const categoria = normalizeCategory(productCategoryInput.value);
   const precio = Number(productPriceInput.value);
   const imagenManual = productImageInput.value.trim();
   const imagen = uploadedImageData || imagenManual || existingImageValue;
@@ -386,38 +392,35 @@ productForm.addEventListener('submit', async (event) => {
     return;
   }
 
-  const products = getProducts();
-
+  const next = [...productsCache];
   if (id) {
-    const index = products.findIndex((product) => product.id === id);
-    if (index > -1) {
-      products[index] = { ...products[index], nombre, categoria, precio, imagen, descripcion };
-    }
+    const index = next.findIndex((product) => product.id === id);
+    if (index > -1) next[index] = { ...next[index], nombre, categoria, precio, imagen, descripcion };
   } else {
-    products.push({
-      id: `p-${Date.now()}`,
-      nombre,
-      categoria,
-      precio,
-      imagen,
-      descripcion
-    });
+    next.push({ id: `p-${Date.now()}`, nombre, categoria, precio, imagen, descripcion });
   }
 
   try {
-    saveProducts(products);
+    await writeProducts(next);
+    productsCache = next;
+    clearForm();
+    renderTable();
   } catch (error) {
-    alert('No se pudo guardar. Puede faltar espacio en el navegador por imagenes muy grandes.');
-    return;
+    console.error(error);
+    alert('No se pudo guardar. Verifica conexion o espacio de almacenamiento.');
   }
-
-  clearForm();
-  renderTable();
 });
 
 cancelEditBtn.addEventListener('click', clearForm);
-logoutBtn.addEventListener('click', () => {
-  setAuthenticated(false);
+logoutBtn.addEventListener('click', async () => {
+  if (window.CloudDB?.enabled) {
+    try {
+      await window.CloudDB.signOut();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  setLegacyAuthenticated(false);
   showLogin();
 });
 
@@ -426,8 +429,8 @@ window.deleteProduct = deleteProduct;
 
 clearForm();
 
-if (isAuthenticated()) {
-  showPanel();
-} else {
-  showLogin();
-}
+(async () => {
+  const ok = await isAuthenticated();
+  if (ok) showPanel();
+  else showLogin();
+})();

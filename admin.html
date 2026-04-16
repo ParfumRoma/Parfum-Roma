@@ -262,7 +262,7 @@
       <h2>Ingreso de administrador</h2>
       <div class="admin-grid">
         <div>
-          <label for="loginUser">Usuario</label>
+          <label for="loginUser">Usuario (email si nube)</label>
           <input id="loginUser" type="text" autocomplete="username" />
         </div>
         <div>
@@ -273,7 +273,7 @@
       <div class="admin-actions">
         <button class="admin-btn primary" id="loginBtn" type="button">Entrar</button>
       </div>
-      <p class="admin-note">Acceso de edicion configurado: usuario Lucas.</p>
+      <p class="admin-note">Modo local: Lucas / click24web. Modo nube: email y contrasena de Supabase Auth.</p>
     </section>
 
     <section id="panelSection" class="hidden">
@@ -368,6 +368,9 @@
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="cloud-config.js"></script>
+  <script src="cloud-db.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>
