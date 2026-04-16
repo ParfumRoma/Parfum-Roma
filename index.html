@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
@@ -6,7 +6,7 @@
     <title>Parfum Roma | Fragancias Árabes & Lujo</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Parfum Roma - Fragancias Árabes & Lujo. Descubrí nuestro catálogo exclusivo de perfumes importados y árabes con los mejores precios y envíos.">
+    <meta name="description" content="Parfum Roma - Fragancias Árabes & Lujo. Descubrí nuestro catálogo exclusivo de perfumes importados y Árabes con los mejores precios y envíos.">
     <meta name="keywords" content="perfumes arabes, fragancias de lujo, parfum roma, perfumes importados, lattafa, afnan, armaf">
     <meta name="author" content="Parfum Roma">
 
@@ -14,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://parfum-roma.vercel.app/">
     <meta property="og:title" content="Parfum Roma | Fragancias Árabes & Lujo">
-    <meta property="og:description" content="Catálogo exclusivo de fragancias árabes e importadas. Los mejores aromas en un solo lugar.">
+    <meta property="og:description" content="Catálogo exclusivo de fragancias Árabes e importadas. Los mejores aromas en un solo lugar.">
     <meta property="og:image" content="img/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Parfum Roma | Fragancias Árabes & Lujo">
-    <meta property="twitter:description" content="Catálogo exclusivo de fragancias árabes e importadas.">
+    <meta property="twitter:description" content="Catálogo exclusivo de fragancias Árabes e importadas.">
     <meta property="twitter:image" content="img/logo.jpg">
 
     <!-- Favicon -->
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 
   <nav id="menu">
     <a href="#productos">Catálogo Árabe</a>
@@ -66,20 +66,18 @@
     </div>
 </section>
 
-</section>
-
 <!-- CATÁLOGO -->
 <section id="productos" class="section">
 
   <h2>Catálogo</h2>
 
   <div class="search-container">
-    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Buscá por nombre, marca o aroma...">
+    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscá por nombre, marca o aroma...">
     <div id="noResults" style="display: none; text-align: center; padding: 20px; color: var(--primary);">No se encontraron perfumes con ese nombre.</div>
   </div>
 
 
-  <div class="catalogo">
+  <div class="catalogo" id="catalogo-arabe">
 
 <!-- PRODUCTOS -->
 <div class="producto">
@@ -87,7 +85,7 @@
   <div class="info">
     <h3>Al Haramain Dubai Night</h3>
     <p class="precio">$99.999</p>
-    <p class="desc">Oriental especiado con matices de ámbar y maderas dulces.</p>
+    <p class="desc">Oriental especiado con matices de Ámbar y maderas dulces.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Al Haramain Dubai Night', 99999, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -177,7 +175,7 @@
   <div class="info">
     <h3>9am Dive</h3>
     <p class="precio">$66.000</p>
-    <p class="desc">Cítricos frescos, lavanda y ámbar marino.</p>
+    <p class="desc">Cítricos frescos, lavanda y Ámbar marino.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9am Dive', 66000, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -206,7 +204,7 @@
   <div class="info">
     <h3>Badee Al Oud Sublime</h3>
     <p class="precio">$60.000</p>
-    <p class="desc">Azafrán, rosa y ámbar cálido.</p>
+    <p class="desc">Azafrán, rosa y Ámbar cálido.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Badee Al Oud Sublime', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -295,7 +293,7 @@
   <div class="info">
     <h3>Dark Aoud</h3>
     <p class="precio">$61.000</p>
-    <p class="desc">Oud oscuro, humo de incienso y ámbar místico.</p>
+    <p class="desc">Oud oscuro, humo de incienso y Ámbar místico.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Dark Aoud', 61000, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -333,20 +331,20 @@
 <div class="producto">
   <img src="img/9PM REBEL.jpg" alt="9PM Rebel">
   <div class="info">
-    <h3>9PM Rebel – Afnan</h3>
+    <h3>9PM Rebel - Afnan</h3>
     <p class="precio">$68.000</p>
     <p class="desc">Dulce, especiada y con actitud nocturna.</p>
-    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9PM Rebel – Afnan', 68000, this)">Agregar al carrito</button>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('9PM Rebel - Afnan', 68000, this)">Agregar al carrito</button>
   </div>
 </div>
 
 <div class="producto">
   <img src="img/LIQUID BRUN.jpg" alt="Liquid Brun">
   <div class="info">
-    <h3>Liquid Brun – French Avenue</h3>
+    <h3>Liquid Brun - French Avenue</h3>
     <p class="precio">$75.000</p>
     <p class="desc">Fragancia cálida, amaderada y elegante.</p>
-    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Liquid Brun – French Avenue', 75000, this)">Agregar al carrito</button>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Liquid Brun - French Avenue', 75000, this)">Agregar al carrito</button>
   </div>
 </div>
 
@@ -373,10 +371,10 @@
 <div class="producto">
   <img src="img/her confession de lattafa.jpg" alt="Her Confession">
   <div class="info">
-    <h3>Her Confession – Lattafa</h3>
+    <h3>Her Confession - Lattafa</h3>
     <p class="precio">$64.000</p>
     <p class="desc">Floral, oriental y femenina.</p>
-    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Her Confession – Lattafa', 64000, this)">Agregar al carrito</button>
+    <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Her Confession - Lattafa', 64000, this)">Agregar al carrito</button>
   </div>
 </div>
 <div class="producto">
@@ -603,7 +601,7 @@
   <div class="info">
     <h3>ANSAAM GOLD de lattafa</h3>
     <p class="precio">$60.000</p>
-    <p class="desc">Notas de ámbar dorado, flores exóticas y maderas suaves.</p>
+    <p class="desc">Notas de Ámbar dorado, flores exóticas y maderas suaves.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('ANSAAM GOLD de lattafa', 60000, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -663,7 +661,7 @@
   <div class="info">
     <h3>FATIMA</h3>
     <p class="precio">$55.000</p>
-    <p class="desc">Jazmín, ámbar dulce y maderas suaves.</p>
+    <p class="desc">Jazmín, Ámbar dulce y maderas suaves.</p>
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('FATIMA', 55000, this)">Agregar al carrito</button>
   </div>
 </div>
@@ -757,14 +755,14 @@
     <button class="btn-wpp btn-add" onclick="agregarAlCarrito('Crema Karseell', 29999, this)">Agregar al carrito</button>
   </div>
 </div>
-    <!-- 🔴 IMPORTANTE -->
+    <!-- IMPORTANTE -->
     <!-- PEGÁ TODOS TUS PRODUCTOS ACÁ ADENTRO -->
     <!-- SOLO CAMBIANDO A ESTE FORMATO -->
 
   </div>
 
   <h2 id="disenador" style="margin-top: 60px;">Perfumes de Diseñador</h2>
-  <div class="catalogo">
+  <div class="catalogo" id="catalogo-disenador">
     <div class="producto">
       <img src="img/Importados diseñador/Le Beau le Parfum 125Ml.jpeg" alt="Le Beau le Parfum">
       <div class="info">
@@ -845,7 +843,7 @@
 <div id="cart-sidebar" class="cart-sidebar">
   <div class="cart-header">
     <h3>Tu Selección</h3>
-    <button class="close-cart" onclick="toggleCart()">✕</button>
+    <button class="close-cart" onclick="toggleCart()">&times;</button>
   </div>
   <div class="cart-items" id="cart-items">
     <!-- Items dinámicos -->
@@ -855,6 +853,7 @@
       <span>Total:</span>
       <span id="cart-total-price">$0</span>
     </div>
+    <button class="btn-continue" onclick="toggleCart()">Seguir comprando</button>
     <button class="btn-checkout" onclick="enviarPedido()">Confirmar por WhatsApp</button>
   </div>
 </div>
@@ -882,66 +881,13 @@
 
 <!-- BOTÓN FLOTANTE CARRITO -->
 <div class="cart-float" onclick="toggleCart()">
-  🛒
+  <span class="cart-float-icon" aria-hidden="true">&#128722;</span>
   <span id="cart-float-count">0</span>
 </div>
 
-<script>
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
-}
-
-function filterProducts() {
-  const input = document.getElementById('searchInput');
-  const filter = input.value.toLowerCase().trim();
-  const searchTerms = filter.split(" ");
-  const products = document.getElementsByClassName('producto');
-  const noResults = document.getElementById('noResults');
-  let hasVisibleProducts = false;
-
-  for (let i = 0; i < products.length; i++) {
-    const title = products[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
-    const desc = products[i].getElementsByClassName('desc')[0].textContent.toLowerCase();
-    const searchableText = title + " " + desc;
-
-    // Matches if ALL search terms are found in the text
-    const matches = searchTerms.every(term => searchableText.includes(term));
-
-    if (matches) {
-      products[i].style.display = "flex";
-      products[i].style.opacity = "1";
-      products[i].style.transform = "translateY(0)";
-      hasVisibleProducts = true;
-    } else {
-      products[i].style.display = "none";
-    }
-  }
-
-  noResults.style.display = hasVisibleProducts ? "none" : "block";
-}
-
-// Fade in animation on scroll
-const observerOptions = {
-  threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.producto, .reveal').forEach(el => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(30px)";
-  el.style.transition = "all 0.8s ease-out";
-  observer.observe(el);
-});
-</script>
 <script src="script.js"></script>
 
 </body>
 </html>
+
+

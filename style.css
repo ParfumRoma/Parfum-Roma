@@ -284,10 +284,12 @@ nav a:hover::after {
   padding: 40px;
   transition: all 0.8s ease;
   filter: grayscale(0.2);
+  transform: scale(1.12);
+  transform-origin: center;
 }
 
 .producto:hover img {
-  transform: scale(1.08);
+  transform: scale(1.18);
   filter: grayscale(0);
 }
 
@@ -469,6 +471,10 @@ footer img:hover {
   transition: var(--transition);
 }
 
+.cart-float-icon {
+  line-height: 1;
+}
+
 .cart-float:hover {
   transform: scale(1.1);
 }
@@ -587,6 +593,8 @@ footer img:hover {
     background: #fff; /* Fondo blanco interno para consistencia */
     filter: brightness(0.95) contrast(1.05); /* Le da un toque fotográfico */
     border-bottom: 1px solid #111;
+    transform: scale(1.1);
+    transform-origin: center;
   }
 
   .producto::before {
@@ -846,4 +854,46 @@ footer img:hover {
 .btn-checkout:hover {
   background: #fff;
   box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.btn-continue {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 14px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.btn-continue:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+    border-left: none;
+  }
+
+  .cart-header,
+  .cart-items,
+  .cart-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cart-float,
+  .whatsapp-float {
+    width: 58px;
+    height: 58px;
+  }
 }
