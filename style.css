@@ -315,14 +315,13 @@ nav a:hover::after {
   background: #000;
   padding: 40px;
   transition: all 0.8s ease;
-  filter: grayscale(0.2);
+  filter: grayscale(0);
   transform: scale(1.2);
   transform-origin: center;
 }
 
 .producto:hover img {
   transform: scale(1.26);
-  filter: grayscale(0);
 }
 
 /* Badge 'Exclusive' */
@@ -641,25 +640,24 @@ footer img:hover {
 
   /* Tarjeta de Producto Rediseñada */
   .producto {
-    background: #0a0a0a;
+    background: #111;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     overflow: hidden;
   }
 
-  /* El truco del 'Marco de Lujo' para imágenes con fondo blanco */
+  /* La imagen clara y vibrante desde el primer segundo */
   .producto img {
     height: 250px;
     width: 100%;
     object-fit: contain;
-    padding: 0;
-    background: #fff;
+    padding: 10px;
+    background: #ffffff;
     mix-blend-mode: multiply;
-    filter: brightness(1.13) contrast(1.1);
-    border-bottom: 1px solid #1a1a1a;
+    filter: brightness(1.15) contrast(1.1); /* Brillo directo, nada de 'oscuro' al inicio */
     transform: scale(1.4);
     transform-origin: center;
+    transition: none; /* Sin animaciones lentas */
   }
 
   .producto::before {
