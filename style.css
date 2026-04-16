@@ -638,26 +638,35 @@ footer img:hover {
     padding: 10px 15px;
   }
 
-  /* Tarjeta de Producto Rediseñada */
+  /* Tarjeta de Producto Rediseñada - LOOK FULL SCREEN */
   .producto {
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
   }
 
-  /* La imagen clara y vibrante desde el primer segundo */
+  /* La imagen ocupa TODO el espacio, sin bordes blancos a los costados */
   .producto img {
-    height: 250px;
+    height: 280px; /* Un poco más alta para que luzca el 'cover' */
     width: 100%;
-    object-fit: contain;
-    padding: 10px;
-    background: #ffffff;
-    mix-blend-mode: multiply;
-    filter: brightness(1.15) contrast(1.1); /* Brillo directo, nada de 'oscuro' al inicio */
-    transform: scale(1.4);
-    transform-origin: center;
-    transition: none; /* Sin animaciones lentas */
+    object-fit: cover; /* ESTO ELIMINA LOS BORDES BLANCOS: La imagen llena el cuadro */
+    padding: 0; 
+    background: #000; 
+    mix-blend-mode: normal; 
+    filter: brightness(1) contrast(1);
+    transform: scale(1); /* Quitamos el zoom artificial ya que el 'cover' ya hace zoom natural */
+    transition: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Parte de texto */
+  .info {
+    padding: 20px 10px;
+    background: #000000;
   }
 
   .producto::before {
