@@ -284,12 +284,12 @@ nav a:hover::after {
   padding: 40px;
   transition: all 0.8s ease;
   filter: grayscale(0.2);
-  transform: scale(1.12);
+  transform: scale(1.2);
   transform-origin: center;
 }
 
 .producto:hover img {
-  transform: scale(1.18);
+  transform: scale(1.26);
   filter: grayscale(0);
 }
 
@@ -589,11 +589,11 @@ footer img:hover {
   /* El truco del 'Marco de Lujo' para imágenes con fondo blanco */
   .producto img {
     height: 180px;
-    padding: 20px;
-    background: #fff; /* Fondo blanco interno para consistencia */
+    padding: 12px;
+    background: #000; /* Fondo negro puro */
     filter: brightness(0.95) contrast(1.05); /* Le da un toque fotográfico */
     border-bottom: 1px solid #111;
-    transform: scale(1.1);
+    transform: scale(1.18);
     transform-origin: center;
   }
 
