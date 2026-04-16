@@ -31,13 +31,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
@@ -131,7 +134,10 @@ nav a:hover::after {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle { display: block; }
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
     position: absolute;
     top: 75px;
@@ -141,17 +147,28 @@ nav a:hover::after {
     padding: 30px;
     border-radius: 20px;
     flex-direction: column;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     display: none;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1001;
   }
-  nav.active { display: flex; animation: slideIn 0.3s ease-out; }
+
+  nav.active {
+    display: flex;
+    animation: slideIn 0.3s ease-out;
+  }
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =======================
@@ -177,7 +194,7 @@ nav a:hover::after {
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 20px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   animation: fadeInDown 1s ease-out;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -193,13 +210,27 @@ nav a:hover::after {
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =======================
@@ -217,13 +248,13 @@ nav a:hover::after {
   width: 100%;
   padding: 18px 30px;
   background: var(--bg-card);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   color: #fff;
   font-family: inherit;
   font-size: 1.1rem;
   outline: none;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   transition: var(--transition);
 }
 
@@ -259,7 +290,8 @@ nav a:hover::after {
   background: rgba(15, 15, 15, 0.4);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 2px; /* Bordes rectos y limpios son más 'pro' y 'luxury' */
+  border-radius: 2px;
+  /* Bordes rectos y limpios son más 'pro' y 'luxury' */
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.03);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -273,7 +305,7 @@ nav a:hover::after {
   transform: translateY(-8px);
   background: rgba(20, 20, 20, 0.7);
   border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 20px rgba(212, 175, 55, 0.05);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.05);
 }
 
 .producto img {
@@ -332,7 +364,8 @@ nav a:hover::after {
 
 .producto h3 {
   font-size: 1.05rem;
-  font-weight: 300; /* Tipografía más fina para lujo */
+  font-weight: 300;
+  /* Tipografía más fina para lujo */
   margin-bottom: 12px;
   color: #fff;
   letter-spacing: 1.5px;
@@ -367,7 +400,8 @@ nav a:hover::after {
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0; /* Recto e imponente */
+  border-radius: 0;
+  /* Recto e imponente */
   text-decoration: none;
   font-size: 0.8rem;
   font-weight: 500;
@@ -381,7 +415,7 @@ nav a:hover::after {
   background: #fff;
   color: #000;
   border-color: #fff;
-  box-shadow: 0 0 30px rgba(255,255,255,0.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 /* =======================
@@ -391,7 +425,7 @@ footer {
   padding: 80px 20px;
   text-align: center;
   background: var(--bg-card);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   margin-top: 60px;
 }
 
@@ -414,7 +448,7 @@ footer img {
   transition: var(--transition);
   border-radius: 50%;
   padding: 10px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 footer img:hover {
@@ -429,7 +463,8 @@ footer img:hover {
 .whatsapp-float {
   position: fixed;
   bottom: 30px;
-  left: 30px; /* A pedido del cliente: izquierda */
+  left: 30px;
+  /* A pedido del cliente: izquierda */
   z-index: 1000;
   background: #25D366;
   width: 65px;
@@ -501,31 +536,52 @@ footer img:hover {
 ======================================================== */
 
 @media (max-width: 768px) {
+
   /* Global cleanup */
-  body { font-size: 14px; background: #000; }
+  body {
+    font-size: 14px;
+    background: #000;
+  }
 
   /* Header Minimalista (Efecto App) */
   .header {
     padding: 10px 5%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     height: 65px;
   }
 
-  .logo-container img { width: 35px; height: 35px; border: none; }
-  .logo-text h1 { font-size: 0.9rem; letter-spacing: 1.5px; }
-  .logo-text span { display: none; } /* Limpiamos ruido visual */
+  .logo-container img {
+    width: 35px;
+    height: 35px;
+    border: none;
+  }
 
-  .menu-toggle { font-size: 22px; }
+  .logo-text h1 {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+
+  .logo-text span {
+    display: none;
+  }
+
+  /* Limpiamos ruido visual */
+
+  .menu-toggle {
+    font-size: 22px;
+  }
 
   /* Hero Inmersivo Full Screen */
   .hero {
-    height: 100vh; /* Ocupa toda la pantalla */
+    height: 100vh;
+    /* Ocupa toda la pantalla */
     background-position: center !important;
     display: flex;
-    align-items: flex-end; /* Texto abajo para no tapar el perfume del fondo */
+    align-items: flex-end;
+    /* Texto abajo para no tapar el perfume del fondo */
     padding-bottom: 80px;
     text-align: center;
   }
@@ -538,7 +594,11 @@ footer img:hover {
     font-weight: 200;
   }
 
-  .hero h2 span { font-size: 2rem; display: block; margin-top: 5px; }
+  .hero h2 span {
+    font-size: 2rem;
+    display: block;
+    margin-top: 5px;
+  }
 
   .hero p {
     font-size: 0.7rem;
@@ -552,7 +612,7 @@ footer img:hover {
     padding: 16px;
     font-size: 0.75rem;
     letter-spacing: 3px;
-    border-color: rgba(255,255,255,0.3);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   /* Buscador Estilo Apple */
@@ -563,11 +623,12 @@ footer img:hover {
   }
 
   #searchInput {
-    background: rgba(30,30,30,0.6);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 15px 25px;
     font-size: 0.9rem;
-    border-radius: 4px; /* Menos redondeado = más pro */
+    border-radius: 4px;
+    /* Menos redondeado = más pro */
     backdrop-filter: blur(10px);
   }
 
@@ -580,20 +641,24 @@ footer img:hover {
 
   /* Tarjeta de Producto Rediseñada */
   .producto {
-    background: #080808; /* Casi negro para que el blanco del perfume destaque menos */
-    border: none;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
   }
 
   /* El truco del 'Marco de Lujo' para imágenes con fondo blanco */
   .producto img {
-    height: 180px;
-    padding: 12px;
-    background: #000; /* Fondo negro puro */
-    filter: brightness(0.95) contrast(1.05); /* Le da un toque fotográfico */
-    border-bottom: 1px solid #111;
-    transform: scale(1.18);
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+    padding: 0;
+    background: #fff;
+    mix-blend-mode: multiply;
+    filter: brightness(1.13) contrast(1.1);
+    border-bottom: 1px solid #1a1a1a;
+    transform: scale(1.4);
     transform-origin: center;
   }
 
@@ -609,7 +674,10 @@ footer img:hover {
     background: linear-gradient(to bottom, #0a0a0a, #000);
   }
 
-  .info::before { width: 15px; top: 12px; }
+  .info::before {
+    width: 15px;
+    top: 12px;
+  }
 
   .producto h3 {
     font-size: 0.75rem;
@@ -625,7 +693,9 @@ footer img:hover {
     font-weight: 400;
   }
 
-  .desc { display: none; }
+  .desc {
+    display: none;
+  }
 
   .btn-wpp {
     font-size: 0.65rem;
@@ -637,15 +707,30 @@ footer img:hover {
   }
 
   /* Footer Mobile */
-  footer { padding: 60px 20px; }
-  footer h2 { font-size: 1.5rem; margin-bottom: 20px; }
+  footer {
+    padding: 60px 20px;
+  }
+
+  footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
 }
 
 /* Ajustes para pantallas extra pequeñas */
 @media (max-width: 360px) {
-  .hero h2 { font-size: 1.5rem !important; }
-  .catalogo { gap: 10px; padding: 10px; }
-  .producto img { height: 160px; }
+  .hero h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .catalogo {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .producto img {
+    height: 160px;
+  }
 }
 
 /* ========================================================
@@ -679,11 +764,13 @@ footer img:hover {
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -400px; /* Hidden start */
+  right: -400px;
+  /* Hidden start */
   width: 380px;
   max-width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 10, 0.85); /* Deep dark glass */
+  background: rgba(10, 10, 10, 0.85);
+  /* Deep dark glass */
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-left: 1px solid rgba(255, 255, 255, 0.05);
@@ -724,7 +811,7 @@ footer img:hover {
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .cart-header h3 {
@@ -763,10 +850,10 @@ footer img:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
   padding: 15px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .cart-item-info h4 {
@@ -786,7 +873,7 @@ footer img:hover {
   display: flex;
   align-items: center;
   gap: 15px;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
   border-radius: 4px;
 }
@@ -820,8 +907,8 @@ footer img:hover {
 /* Cart Footer / Checkout */
 .cart-footer {
   padding: 25px 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .cart-total {
@@ -862,7 +949,7 @@ footer img:hover {
   padding: 14px;
   background: transparent;
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   font-weight: 600;
   font-size: 0.92rem;
   cursor: pointer;
