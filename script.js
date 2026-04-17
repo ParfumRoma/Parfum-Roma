@@ -313,4 +313,14 @@ function applyProductRevealAnimation() {
 document.addEventListener('DOMContentLoaded', async () => {
   await ensureProductsLoaded();
   actualizarCarrito();
+
+  const cartFloat = document.querySelector('.cart-float');
+  if (cartFloat) {
+    cartFloat.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleCart();
+      }
+    });
+  }
 });

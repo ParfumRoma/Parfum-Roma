@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#050505" />
   <title>Panel Admin | Parfum Roma</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -35,6 +36,7 @@
     .admin-card textarea {
       width: 100%;
       padding: 10px;
+      font-size: 16px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: #111;
@@ -58,9 +60,12 @@
       background: transparent;
       color: var(--primary);
       padding: 10px 14px;
+      min-height: 44px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .admin-btn.primary {
@@ -263,7 +268,7 @@
       <div class="admin-grid">
         <div>
           <label for="loginUser">Usuario (email si nube)</label>
-          <input id="loginUser" type="text" autocomplete="username" />
+          <input id="loginUser" type="text" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" />
         </div>
         <div>
           <label for="loginPass">Contrasena</label>
@@ -295,11 +300,11 @@
             </div>
             <div>
               <label for="productPrice">Precio (solo numeros)</label>
-              <input id="productPrice" type="number" min="1" step="1" required />
+              <input id="productPrice" type="number" min="1" step="1" inputmode="numeric" required />
             </div>
             <div>
               <label for="productImage">Ruta imagen (opcional si subis archivo)</label>
-              <input id="productImage" type="text" placeholder="img/foto.jpg o URL completa" />
+              <input id="productImage" type="text" placeholder="img/foto.jpg o URL completa" autocapitalize="none" spellcheck="false" />
             </div>
           </div>
           <div class="image-uploader">
@@ -333,7 +338,7 @@
         <h2>Listado actual</h2>
         <div style="margin-bottom: 12px;">
           <label for="adminSearchInput">Buscar producto</label>
-          <input id="adminSearchInput" type="text" placeholder="Buscar por nombre, descripcion o categoria..." />
+          <input id="adminSearchInput" type="text" placeholder="Buscar por nombre, descripcion o categoria..." autocomplete="off" spellcheck="false" inputmode="search" />
         </div>
         <h3 class="section-title">Perfumes Arabes</h3>
         <table class="admin-table">

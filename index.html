@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
+    <meta name="theme-color" content="#050505"/>
     <title>Parfum Roma | Fragancias Árabes & Lujo</title>
 
     <!-- SEO Meta Tags -->
@@ -44,13 +45,13 @@
     </div>
   </div>
 
-  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+  <button class="menu-toggle" onclick="toggleMenu()" type="button" aria-label="Abrir menu">&#9776;</button>
 
   <nav id="menu">
     <a href="#productos">Catálogo Árabe</a>
     <a href="#disenador" style="color: var(--primary); font-weight: 600;">Diseñador <span style="font-size: 0.6rem; vertical-align: top; background: var(--primary); color: #000; padding: 2px 4px; border-radius: 2px; margin-left: 2px;">NUEVO</span></a>
     <a href="#contacto">Contacto</a>
-    <a href="https://www.instagram.com/parfum.roma/" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/parfum.roma/" target="_blank" rel="noopener noreferrer">Instagram</a>
   </nav>
 
 </header>
@@ -64,6 +65,7 @@
       <a href="#productos" class="btn-wpp" style="display: inline-block; width: auto; padding: 18px 40px; border-radius: 0;">Catálogo Árabe</a>
       <a href="#disenador" class="btn-wpp" style="display: inline-block; width: auto; padding: 18px 40px; border-radius: 0; background: var(--primary); color: #000; font-weight: 700;">Línea Diseñador (NUEVO)</a>
     </div>
+  </div>
 </section>
 
 <!-- CATÁLOGO -->
@@ -72,7 +74,7 @@
   <h2>Catálogo</h2>
 
   <div class="search-container">
-    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscá por nombre, marca o aroma...">
+    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscá por nombre, marca o aroma..." autocomplete="off" spellcheck="false" inputmode="search">
     <div id="noResults" style="display: none; text-align: center; padding: 20px; color: var(--primary);">No se encontraron perfumes con ese nombre.</div>
   </div>
 
@@ -864,10 +866,10 @@
   <h2>¿Listo para tu nueva fragancia?</h2>
   <p>Contactanos para asesoramiento personalizado.</p>
   <div class="social-links">
-    <a href="https://www.instagram.com/parfum.roma/" target="_blank">
+    <a href="https://www.instagram.com/parfum.roma/" target="_blank" rel="noopener noreferrer">
       <img src="img/instagram.jpg" alt="Instagram">
     </a>
-    <a href="https://wa.me/5491150350552" target="_blank">
+    <a href="https://wa.me/5491150350552" target="_blank" rel="noopener noreferrer">
       <img src="img/whatsapp1234.png" alt="WhatsApp">
     </a>
   </div>
@@ -875,12 +877,12 @@
 </footer>
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/5491150350552" target="_blank">
+<a class="whatsapp-float" href="https://wa.me/5491150350552" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
   <img src="img/WhatsApp12345.svg" alt="WhatsApp">
 </a>
 
 <!-- BOTÓN FLOTANTE CARRITO -->
-<div class="cart-float" onclick="toggleCart()">
+<div class="cart-float" onclick="toggleCart()" role="button" tabindex="0" aria-label="Abrir carrito">
   <span class="cart-float-icon" aria-hidden="true">&#128722;</span>
   <span id="cart-float-count">0</span>
 </div>
